@@ -1,77 +1,161 @@
-@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;500;600;700&display=swap");
 
-*{
-    font-family: 'Open Sans', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
+* {
+  font-family: "Open Sans", sans-serif;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /*----------options-----------*/
 .row {
-    display: flex;
-    justify-content: space-between;
-  }
-
-/* School */
-.Services{
-    width: 100%;
-    width: 100%;
-    align-items: center;
-    justify-content: center; 
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  display: flex;
+  justify-content: space-between;
 }
-.services-column{
-    position: relative;
-    margin: 0 auto;
-    justify-content: center;
-    
+body {
+  height: 100vh;
 }
-.services-column img{
-    margin: 70px 60px 20px;
-    height: fit-content;
-    width: 310px;
-    height: 300px;
-    border-radius: 10%;
-
+/* MAIN PAGE     */
+.Services {
+  width: 100%;
+  transition: filter 0.5s ease-in-out 300ms;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
-.services-column h2{
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 40px;
-    font-family: IBM Plex Mono;
-    margin: 4% 5%;
+.services-column {
+  position: relative;
+  margin: 0;
+  justify-content: center;
 }
-.more-info{
-    display: flex;
-    justify-content: center;
+.Services .services-column img {
+  margin: 70px 60px 20px;
+  height: fit-content;
+  width: 310px;
+  height: 300px;
+  border-radius: 10%;
 }
-.more{
-    justify-content: center;
+.services-column h2 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 40px;
+  font-family: IBM Plex Mono;
+  margin: 4% 5%;
+}
+.more-info {
+  display: flex;
+  justify-content: center;
+}
+.more {
+  justify-content: center;
 }
 
 .book-btn {
-    border-radius: 10px;
-    text-decoration: none;
-    letter-spacing: .2em;
-    color: #FFFFFF;
-    padding: 12px 24px;
-    position: relative;
-    background: transparent;
-    border: 1px solid #ffffff;
-    margin-bottom: 5%;
-    cursor: pointer;
-    font-weight: bold;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+  padding: 12px 24px;
+  position: relative;
+  background: transparent;
+  border: 1px solid #ffffff;
+  margin-bottom: 5%;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .book-btn:hover {
-    cursor: pointer;
-    color: black;
-    background: #FBB034;
-    border: 1px solid #ffffff;
-    transition: 1s ease;
-    box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  color: black;
+  background: #fbb034;
+  border: 1px solid #ffffff;
+  transition: 1s ease;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* POPUP SIDE */
+.popup1,
+.popup2,
+.popup3 {
+  position: absolute;
+  top: -150%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 75%;
+  height: 70%;
+  padding: 20px;
+  background: #9f9898;
+  border-radius: 15px;
+  box-shadow: 0 2px 5px 5px rgb(108, 105, 105);
+  margin-top: -25px;
+  transition: top 0.5s ease-in-out 300ms, opacity 300ms ease-in-out,
+    margin-top 300ms ease-in-out;
+}
+
+.popup1 .close-btn,
+.popup2 .close-btn,
+.popup3 .close-btn {
+  position: absolute;
+  top: 10px;
+  font-weight: 900;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  background: #807d7d;
+  color: #111;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+body.active-popup1,
+body.active-popup2,
+body.active-popup3 {
+  overflow: hidden;
+}
+body.active-popup1 .Services,
+body.active-popup2 .Services,
+body.active-popup3 .Services {
+  filter: blur(5px);
+  background: rgba(0, 0, 0, 0.9);
+  transition: filter 0.5s ease-in-out 0.5ms;
+}
+body.active-popup1 .popup1,
+body.active-popup2 .popup2,
+body.active-popup3 .popup3  {
+  top: 50%;
+  opacity: 1;
+  margin-top: 0px;
+  transition: top 0.5s ease-in-out 0.5ms, opacity 300ms ease-in-out,
+              margin-top 300ms ease-in-out;
+}
+
+.col2 {
+  margin-top: 2%;
+  justify-content: space-evenly;
+  width: 80%;
+  margin-left: 5%;
+  text-align: center;
+}
+.popup1 .services-column img,
+.popup2 .services-column img,
+.popup3 .services-column img {
+  margin-top: 8%;
+  height: 170px;
+  width: 200px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 1px rgb(108, 105, 105);
+}
+.popup1 .services-column h1,
+.popup2 .services-column h1,
+.popup3 .services-column h1 {
+  font-family: IBM Plex Mono;
+  font-size: 25px;
+  font-weight: 500;
+}
+.two {
+  margin-top: 30%;
 }

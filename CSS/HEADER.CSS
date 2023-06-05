@@ -18,6 +18,27 @@ nav {
     align-items: center;
     margin: auto;
 }
+
+.username #user-account {
+    margin-left: 10%;
+    text-decoration: none;
+    letter-spacing: .2em;
+    color: #FFFFFF;
+    padding: 12px 24px;
+    position: relative;
+    background: transparent;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 50px;
+    font-weight: bold;
+}
+
+.username h1 {
+    margin-left: 40%;
+    color: white;
+    font-size: 15px;
+}
+
 .logo{
     margin-left: 5%;
 }

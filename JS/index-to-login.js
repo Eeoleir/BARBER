@@ -12,7 +12,7 @@ loginButton.addEventListener('click', function(event) {
     opacity: 0,
     onComplete: function() {
       // Once the fade-out animation is complete, redirect to the login page
-      window.location.href = 'login.html';
+      window.location.href = 'LOGIN.html';
     }
   });
 });

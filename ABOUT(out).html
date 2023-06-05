@@ -17,6 +17,7 @@
     <!-- ICONS IN MY SITE -->
     <script src="https://kit.fontawesome.com/ae0bd0171a.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     
@@ -123,63 +124,41 @@
 
   <section class="ratings" id="ratings">
     <div class="rate-title">
-        <h3>Ratings</h3>
+      <h3>Ratings</h3>
     </div>
-  </section>
-
-  <section class="container-styles" id="container-styles">
-  <div class="container-rate">
-    <div class="post">
-        <div class="text">Thanks for rating us!</div>
-        <div class="edit">EDIT</div>
+    <div class="comments">
+      <div id="comment-form">
+        <input type="text" id="name-input" placeholder="Your Name" disabled>
+        <textarea id="comment-input" placeholder="Write a comment" disabled></textarea>
+        <button id="comment-submit" disabled>Submit</button>
       </div>
-    <div class="star-widget">
-        <input type="radio" name="rate" id="rate-5">
-        <label for="rate-5" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-4">
-        <label for="rate-4" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-3">
-        <label for="rate-3" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-2">
-        <label for="rate-2" class="fas fa-star"></label>
-        <input type="radio" name="rate" id="rate-1">
-        <label for="rate-1" class="fas fa-star"></label>
-          
-          <form action="#">
-            <header></header>
-            <div class="textarea">
-              <textarea cols="30" placeholder="Tell us your experience..." required></textarea>
-            </div>
-            <div class="btn">
-              <button type="submit">Post</button>
-            </div>
-          </form>
+      <div class="comment-list">
+        <!-- Comment elements will be added here -->
+        <div class="comment">
+          <h4>John Doe</h4>
+          <p>This is a great website! I love the design and functionality.</p>
         </div>
+        <div class="comment">
+          <h4>Jane Smith</h4>
+          <p>Amazing content! Keep up the excellent work.</p>
+        </div>
+        <div class="comment">
+          <h4>Mike Johnson</h4>
+          <p>I found the information provided here very helpful. Thanks!</p>
+        </div>
+        <div class="comment">
+          <h4>Sarah Thompson</h4>
+          <p>I have learned so much from this website. Highly recommended!</p>
+        </div>
+        <div class="comment">
+          <h4>David Wilson</h4>
+          <p>The user interface is intuitive and easy to navigate. Great job!</p>
+        </div>
+      </div>
     </div>
-
-    
-<!-- SCRIPT -->
-    <script>
-  const btn = document.querySelector(".btn button");
-  const post = document.querySelector(".post");
-  const widget = document.querySelector(".star-widget");
-  const editBtn = document.querySelector(".edit");
-
-    btn.onclick = () => {
-    [widget.style.display, post.style.display] = ["none", "block"];
-    editBtn.onclick = () => [widget.style.display, post.style.display] = ["block", "none"];
-    return false;
-  }
-
-  document.querySelector('form').addEventListener('submit', event => {
-    event.preventDefault();
-    console.log("Feedback submitted!"); // replace with your actual submission code
-  });
-</script>
-    
   </section>
-
-  <script src="JS/animation.js"></script>
+  
+  <script src="JS/index-to-login.js"></script>
   
 </body>
 </html>

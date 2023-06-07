@@ -20,7 +20,7 @@ nav {
 }
 
 .username #user-account {
-    margin-left: 10%;
+    left: -5%;
     text-decoration: none;
     letter-spacing: .2em;
     color: #FFFFFF;
@@ -28,15 +28,17 @@ nav {
     position: relative;
     background: transparent;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
     margin-right: 50px;
     font-weight: bold;
+    
 }
 
 .username h1 {
     margin-left: 40%;
     color: white;
-    font-size: 15px;
+    font-size: 20px;
+    width: 100%;
 }
 
 .logo{

@@ -1,18 +1,20 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/login.css">
+    <title>Form Validation</title>
     <!-- FONTS IN MY SITE -->
     <link rel="preconnect " href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;600;700&display=swap" rel="stylesheet" />
     <!-- ICONS IN MY SITE -->
     <script src="https://kit.fontawesome.com/0084cc2fcc.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
-    <title>REGISTRATION PAGE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/login.css">
+    <script defer src="JS/registration.js"></script>
 </head>
 <body>
     <div class="wrapper">
@@ -23,22 +25,26 @@
                 <div class="input-group">
                     <input type="text" id="reg-username" name="reg-username" >
                     <label for="reg-username">Username</label>
+                    <div class="error"></div>
                 </div>
                 <div class="input-group">
-                    <input type="email" id="reg-email" name="reg-email" >
+                   <input type="email" id="reg-email" name="reg-email" >
                     <label for="reg-email">Email</label>
+                    <div class="error"></div>
                 </div>
-                <!-- Sign-up form -->
                 <div class="input-group">
                     <i class="fa-solid fa-eye" id="eye-icon2"></i>
                     <input type="password" id="reg-password" name="reg-password" >
                     <label for="reg-password">Password</label>
+                    <div class="error"></div>
                 </div>
                 <div class="input-group">
                     <i class="fa-solid fa-eye" id="eye-icon3"></i>
                     <input type="password" id="reg-confirm-password" name="reg-confirm-password" >
                     <label for="reg-confirm-password">Confirm Password</label>
+                    <div class="error"></div>
                 </div>
+                
                 <div class="remember">
                     <label><input type="checkbox" > I agree to the terms & conditions</label>
                 </div>
@@ -49,7 +55,5 @@
             </form>
         </div>
     </div>
-
-    <script src="JS/registration.js"></script>
 </body>
 </html>

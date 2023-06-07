@@ -1,6 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Clicker+Script&family=Poppins:wght@200;300;500;600;700&display=swap");
-
-/*<-----------Settings for all---------->*/
 * {
     font-family: 'Open Sans', sans-serif;
     font-family: 'Poppins', sans-serif;
@@ -8,7 +6,6 @@
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
     display: flex;
     justify-content: center;
@@ -17,7 +14,6 @@ body {
     background: url("login_gif.gif");
     background-size: cover;
 }
-
 .close-button {
     position: absolute;
     top: 10px;
@@ -27,7 +23,6 @@ body {
     opacity: 0.7;
     cursor: pointer;
 }
-
 .wrapper {
     position: relative;
     width: 400px;
@@ -37,7 +32,6 @@ body {
     border-radius: 20px;
     padding: 40px;
 }
-
 .form-wrapper {
     display: flex;
     justify-content: center;
@@ -47,11 +41,11 @@ body {
     transition: 1s ease-in-out;
 }
 
-
 h2 {
     font-size: 30px;
     color: #fff;
     text-align: center;
+    margin-top: -2%;
 }
 
 .input-group {
@@ -59,32 +53,36 @@ h2 {
     margin: 30px;
     border-bottom: 2px solid #fff;
 }
-
 .input-group label {
     position: absolute;
-    top: 50%;
     left: 5px;
     transform: translateY(-50%);
     font-size: 16px;
     color: #fff;
     pointer-events: none;
+    margin-bottom: 5%;
     transition: .5s;
 }
-
 .input-group input {
     width: 320px;
-    height: 40px;
+    height: 30p;
     font-size: 16px;
     color: #fff;
     padding: 0 5px;
     background: transparent;
     border: none;
     outline: none;
-}   
-
-.input-group input:focus ~ label,
-.input-group input:valid ~ label {
-    top: -5px;
+    margin-top: 5%;
+}  
+.input-group .fa-solid {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-weight: 900;
+    font-size: 18px;
+    color: #fff;
 }
 
 .remember {
@@ -99,7 +97,6 @@ h2 {
 .remember label input {
     accent-color: #FBB034;
 }
-
 button {
     position: relative;
     width: 50%;
@@ -155,16 +152,29 @@ button:hover {
     color: #fff;
 }
 
-.prompt {
-    margin-top: 10px;
-    color: #fff;
-    text-align: center;
+.input-group input:focus {
+    outline: 0;
+}
+
+.input-group.success input {
+    border-color: #09c372;
+}
+
+.input-group.error input {
+    border-color: #ff3860;
+}
+
+.input-group .error {
+    position: absolute;
+    color: #ff3860;
+    height: 8px;
 }
 
 .prompt.success {
     color: #00ff00;
+    text-align: center;
 }
-
 .prompt.error {
     color: #ff0000;
+    text-align: center;
 }

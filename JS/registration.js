@@ -1,46 +1,40 @@
-const regForm = document.getElementById("registration-form");
+const form = document.getElementById("registration-form");
 const regPrompt = document.getElementById("registration-prompt");
+const username = document.getElementById("reg-username");
+const email = document.getElementById("reg-email");
+const password = document.getElementById("reg-password");
+const confirmPassword = document.getElementById("reg-confirm-password");
 
-regForm.addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevents form submission
+form.addEventListener("submit", (e) => {
+  const usernameValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const password2Value = confirmPassword.value.trim();
+  e.preventDefault();
+  validateInputs();
 
-  const username = document.getElementById("reg-username").value;
-  const email = document.getElementById("reg-email").value;
-  const password = document.getElementById("reg-password").value;
-  const confirmPassword = document.getElementById("reg-confirm-password").value;
-
-  // Validation
-  if (username.trim() === "" || email.trim() === "") {
-    regPrompt.textContent = "Please fill in all fields.";
+  if (
+    usernameValue !== "" &&
+    emailValue !== "" &&
+    isValidEmail(emailValue) &&
+    passwordValue !== "" &&
+    passwordValue.length >= 8 &&
+    password2Value !== "" &&
+    password2Value === passwordValue
+  ) {
+    localStorage.setItem("username", usernameValue);
+    localStorage.setItem("email", emailValue);
+    localStorage.setItem("password", passwordValue);
+    console.log("working");
+    regPrompt.textContent = "";
+    regPrompt.textContent = "Registration successful!";
+    regPrompt.classList.remove("error");
+    regPrompt.classList.add("success");
+  } else {
+    regPrompt.textContent = "Registration Failed";
     regPrompt.classList.remove("success");
     regPrompt.classList.add("error");
-    return; // Exit the function to prevent further execution
   }
-
-  if (password.trim() === "") {
-    regPrompt.textContent = "Please Enter your Password.";
-    regPrompt.classList.remove("success");
-    regPrompt.classList.add("error");
-    return; // Exit the function to prevent further execution
-  }
-
-  if (password !== confirmPassword) {
-    regPrompt.textContent = "Passwords do not match.";
-    regPrompt.classList.remove("success");
-    regPrompt.classList.add("error");
-    return; // Exit the function to prevent further execution
-  }
-
-  // Here we add our registration logic, such as sending a request to a server to create a new user account
-  // we'll just store the username and password in local storage
-  localStorage.setItem("username", username);
-  localStorage.setItem("email", email);
-  localStorage.setItem("password", password);
-
-  regPrompt.textContent = "Registration successful!";
-  regPrompt.classList.remove("error");
-  regPrompt.classList.add("success");
-
   // Clear the form
   document.getElementById("reg-username").value = "";
   document.getElementById("reg-email").value = "";
@@ -48,7 +42,66 @@ regForm.addEventListener("submit", function(event) {
   document.getElementById("reg-confirm-password").value = "";
 });
 
+const setError = (element, message) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
 
+  errorDisplay.innerText = message;
+  inputControl.classList.add("error");
+  inputControl.classList.remove("success");
+};
+
+const setSuccess = (element) => {
+  const inputControl = element.parentElement;
+  const errorDisplay = inputControl.querySelector(".error");
+
+  errorDisplay.innerText = "";
+  inputControl.classList.add("success");
+  inputControl.classList.remove("error");
+};
+
+const isValidEmail = (email) => {
+  const re =
+    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+};
+
+const validateInputs = () => {
+  const usernameValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passwordValue = password.value.trim();
+  const password2Value = confirmPassword.value.trim();
+
+  if (usernameValue === "") {
+    setError(username, "Username is required");
+  } else {
+    setSuccess(username);
+  }
+
+  if (emailValue === "") {
+    setError(email, "Email is required");
+  } else if (!isValidEmail(emailValue)) {
+    setError(email, "Provide a valid email address");
+  } else {
+    setSuccess(email);
+  }
+
+  if (passwordValue === "") {
+    setError(password, "Password is required");
+  } else if (passwordValue.length < 8) {
+    setError(password, "Password must be at least 8 characters");
+  } else {
+    setSuccess(password);
+  }
+
+  if (password2Value === "") {
+    setError(confirmPassword, "Please confirm your password");
+  } else if (password2Value !== passwordValue) {
+    setError(confirmPassword, "Passwords don't match");
+  } else {
+    setSuccess(confirmPassword);
+  }
+};
 
 // show and unshow password
 const eyeIcon2 = document.getElementById("eye-icon2");
